@@ -1,13 +1,15 @@
 "use client"
 
+import Link from "next/link"
 import { Wrench, Users, Clipboard, Calendar } from "lucide-react"
 
 interface SidebarProps {
   currentView: "kanban" | "equipment" | "calendar" | "teams"
   onViewChange: (view: "kanban" | "equipment" | "calendar" | "teams") => void
+  links?: { id: string; label: string; href: string; icon: any }[]
 }
 
-export function Sidebar({ currentView, onViewChange }: SidebarProps) {
+export function Sidebar({ currentView, onViewChange, links }: SidebarProps) {
   const menuItems = [
     { id: "kanban", label: "Maintenance Board", icon: Clipboard },
     { id: "equipment", label: "Equipment", icon: Wrench },
@@ -30,22 +32,38 @@ export function Sidebar({ currentView, onViewChange }: SidebarProps) {
       </div>
 
       <nav className="flex-1 p-4 space-y-2">
-        {menuItems.map((item) => {
-          const Icon = item.icon
-          const isActive = currentView === item.id
-          return (
-            <button
-              key={item.id}
-              onClick={() => onViewChange(item.id as any)}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
-                isActive ? "bg-primary text-primary-foreground" : "text-[#5D3D55] hover:bg-secondary"
-              }`}
-            >
-              <Icon className="w-5 h-5" />
-              <span className="font-medium text-sm">{item.label}</span>
-            </button>
-          )
-        })}
+        {links ? (
+          links.map((item) => {
+            const Icon = item.icon
+            return (
+              <Link
+                key={item.id}
+                href={item.href}
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-[#5D3D55] hover:bg-secondary`}
+              >
+                <Icon className="w-5 h-5" />
+                <span className="font-medium text-sm">{item.label}</span>
+              </Link>
+            )
+          })
+        ) : (
+          menuItems.map((item) => {
+            const Icon = item.icon
+            const isActive = currentView === item.id
+            return (
+              <button
+                key={item.id}
+                onClick={() => onViewChange(item.id as any)}
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
+                  isActive ? "bg-primary text-primary-foreground" : "text-[#5D3D55] hover:bg-secondary"
+                }`}
+              >
+                <Icon className="w-5 h-5" />
+                <span className="font-medium text-sm">{item.label}</span>
+              </button>
+            )
+          })
+        )}
       </nav>
 
       <div className="p-4 border-[#5D3D55]">

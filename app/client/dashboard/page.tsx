@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -70,6 +71,8 @@ export default function ClientDashboard() {
     }
   }
 
+  const router = useRouter()
+
   return (
     <>
     <AuthLayout userRole="client">
@@ -79,7 +82,7 @@ export default function ClientDashboard() {
             <h1 className="text-4xl font-bold text-[#5D3D55]">Maintenance Requests</h1>
             <p className="text-muted-foreground mt-2">Track and manage your equipment maintenance</p>
           </div>
-          <Button className="bg-[#604058] text-white hover:scale-105 w-full md:w-auto">
+          <Button onClick={() => router.push('/client/requests/new')} className="bg-[#604058] text-white hover:scale-105 w-full md:w-auto">
             <Plus className="mr-2 h-4 w-4" />
             New Request
           </Button>
@@ -157,7 +160,7 @@ export default function ClientDashboard() {
               <EmptyState
                 title="No requests yet"
                 description="You haven't submitted any maintenance requests. Create one to get started."
-                action={{ label: "Create Request", onClick: () => {} }}
+                action={{ label: "Create Request", onClick: () => router.push('/client/requests/new') }}
               />
             )}
           </CardContent>
