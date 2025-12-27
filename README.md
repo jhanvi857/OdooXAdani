@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GearGuard - The Ultimate Maintenance Tracker
 
-## Getting Started
+GearGuard is a full-stack maintenance management system designed to help organizations track equipment, manage maintenance requests, and coordinate technicians efficiently.
+It is built as a SaaS-style demo application suitable for college projects, hackathons, and product demos.
 
-First, run the development server:
+The system connects equipment, maintenance teams, and requests into a single workflow with role-based access and intuitive dashboards.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Project Overview
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+GearGuard solves the problem of unorganized asset maintenance by providing:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Centralized equipment tracking
+- Structured maintenance request workflows
+- Role-based dashboards for different users
+- Visual task tracking using Kanban and Calendar views
+- The application is designed as an MVP but follows real-world ERP concepts similar to systems like Odoo.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+# User Roles
+ 
+- Client : 
+Can create and track maintenance requests related to their equipment.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Technician : 
+Can view assigned maintenance requests, update request status, and manage repairs.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Manager or Admin :
+Has full control over equipment, teams, scheduling, and reporting.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Core Features
+- Equipment Management : Create and manage equipment records, Store serial number, location, department, warranty, and ownership details. Mark equipment as scrapped when required. Smart button to view all maintenance requests related to a specific equipment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Maintenance Requests : 
+Create corrective and preventive maintenance requests
+Automatic assignment of maintenance team and default technician based on equipment
+Request lifecycle tracking with statuses New, In Progress, Repaired, Scrap
+Overdue request detection based on dates
+
+- Kanban Board : 
+Visual request tracking for technicians
+Requests grouped by status
+Reusable maintenance request cards
+
+- Calendar View : 
+Displays preventive maintenance requests
+Allows scheduling maintenance on specific dates
+
+- Team Management : 
+Create maintenance teams
+Assign technicians to teams
+Restrict request handling to assigned team members only
+
+- Reporting :
+Track maintenance requests by status, team, or equipment
+Basic analytics suitable for demos and evaluation
+
+---
+
+# Business Logic Highlights
+
+- When a maintenance request is created, selecting equipment automatically fills the assigned maintenance team and technician.
+- Only technicians belonging to the assigned team can work on a request.
+- Moving a request to the Scrap status automatically marks the related equipment as unusable.
+- Preventive maintenance requests appear in the calendar view based on their scheduled date.
+
+---
+
+# Conclusion
+GearGuard demonstrates how a real-world maintenance management system can be designed using modern full-stack technologies.
+It balances practical features with clean architecture and provides a strong foundation for further extension into a production-ready system.
