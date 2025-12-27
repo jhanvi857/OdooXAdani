@@ -27,14 +27,14 @@ export function MaintenanceRequestCard({ request }: MaintenanceRequestCardProps)
         </div>
       )}
 
-      <h5 className="font-semibold text-sm text-foreground line-clamp-2 mb-2">{request.subject}</h5>
+      <h5 className="font-semibold text-sm text-[#5D3D55] line-clamp-2 mb-2">{request.subject}</h5>
 
       <div className="space-y-2">
         <p className="text-xs text-muted-foreground">
-          Equipment: <span className="font-medium text-foreground">{request.equipment}</span>
+          Equipment: <span className="font-medium text-[#5D3D55]">{request.equipment}</span>
         </p>
 
-        <div className="flex items-center justify-between pt-2 border-t border-border">
+        <div className="flex items-center justify-between pt-2 border-[#5D3D55]">
           <div className="flex items-center gap-2">
             <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-xs font-bold text-primary-foreground">
               {request.avatar}

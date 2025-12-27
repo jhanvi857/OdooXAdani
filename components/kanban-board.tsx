@@ -78,7 +78,7 @@ export function KanbanBoard() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h3 className="text-xl font-semibold text-foreground">Maintenance Requests</h3>
+          <h3 className="text-xl font-semibold text-[#5D3D55]">Maintenance Requests</h3>
           <p className="text-sm text-muted-foreground">Organize and track all maintenance requests</p>
         </div>
         <Button className="gap-2 bg-primary hover:bg-primary/90">
@@ -93,7 +93,7 @@ export function KanbanBoard() {
           return (
             <div key={stage.id} className={`rounded-lg p-4 ${stage.color}`}>
               <div className="flex items-center justify-between mb-4">
-                <h4 className="font-semibold text-foreground">{stage.label}</h4>
+                <h4 className="font-semibold text-[#5D3D55]">{stage.label}</h4>
                 <Badge variant="secondary" className="text-xs">
                   {stageRequests.length}
                 </Badge>

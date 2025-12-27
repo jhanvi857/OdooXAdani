@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${_geistSans.className} font-sans antialiased bg-background text-foreground`}
+        className={`${_geistSans.className} font-sans antialiased bg-background text-[#5D3D55]`}
       >
         <AuthProvider>{children}</AuthProvider>
       </body>

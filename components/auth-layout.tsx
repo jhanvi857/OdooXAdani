@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { useRouter } from "next/navigation"
 import { Menu, X, LogOut, Home } from "lucide-react"
 import { useAuth } from "@/app/providers"
-
+import Link from "next/link"
 interface AuthLayoutProps {
   children: React.ReactNode
   userRole: "client" | "technician" | "manager"
@@ -45,13 +45,13 @@ export default function AuthLayout({ children, userRole }: AuthLayoutProps) {
     <div className="flex h-screen bg-background">
       {/* Sidebar */}
       <div
-        className={`fixed inset-y-0 left-0 z-40 w-64 bg-slate-900 text-white transform transition-transform duration-300 lg:static lg:translate-x-0 ${
+        className={`fixed inset-y-0 left-0 z-40 w-64 bg-[#6c4863] text-white transform transition-transform duration-300 lg:static lg:translate-x-0 ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <div className="flex flex-col h-full">
           <div className="p-6 border-b border-slate-700">
-            <h1 className="text-2xl font-bold">GearGuard</h1>
+            <Link href="/" className="text-2xl font-bold">GearGuard</Link>
             <p className="text-sm text-slate-400 mt-1 capitalize">{userRole} Account</p>
           </div>
 
@@ -59,7 +59,7 @@ export default function AuthLayout({ children, userRole }: AuthLayoutProps) {
             <ul className="space-y-2">
               {navItems[userRole].map((item) => (
                 <li key={item.label}>
-                  <button className="w-full text-left px-4 py-2 rounded-lg hover:bg-slate-800 transition-colors">
+                  <button className="w-full text-left px-4 py-2 rounded-lg hover:bg-[#5D3D55] transition-colors">
                     {item.label}
                   </button>
                 </li>
@@ -67,10 +67,10 @@ export default function AuthLayout({ children, userRole }: AuthLayoutProps) {
             </ul>
           </nav>
 
-          <div className="p-4 border-t border-slate-700">
+          <div className="p-4 border-[#5D3D55]">
             <Button
               variant="ghost"
-              className="w-full justify-start text-white hover:bg-slate-800"
+              className="bg-white text-[#604058] w-full justify-start hover:scale-105"
               onClick={handleLogout}
             >
               <LogOut className="mr-2 h-4 w-4" />

@@ -23,7 +23,7 @@ export function Sidebar({ currentView, onViewChange }: SidebarProps) {
             <Wrench className="w-6 h-6 text-primary-foreground" />
           </div>
           <div>
-            <h1 className="font-bold text-lg">GearGuard</h1>
+            <h1 className="font-bold text-lg text-[#5D3D55]">GearGuard</h1>
             <p className="text-xs text-muted-foreground">Maintenance Tracker</p>
           </div>
         </div>
@@ -38,7 +38,7 @@ export function Sidebar({ currentView, onViewChange }: SidebarProps) {
               key={item.id}
               onClick={() => onViewChange(item.id as any)}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
-                isActive ? "bg-primary text-primary-foreground" : "text-foreground hover:bg-secondary"
+                isActive ? "bg-primary text-primary-foreground" : "text-[#5D3D55] hover:bg-secondary"
               }`}
             >
               <Icon className="w-5 h-5" />
@@ -48,9 +48,9 @@ export function Sidebar({ currentView, onViewChange }: SidebarProps) {
         })}
       </nav>
 
-      <div className="p-4 border-t border-border">
+      <div className="p-4 border-[#5D3D55]">
         <div className="bg-secondary p-4 rounded-lg">
-          <p className="text-xs font-semibold text-foreground mb-2">Quick Stats</p>
+          <p className="text-xs font-semibold text-[#5D3D55] mb-2">Quick Stats</p>
           <div className="space-y-2 text-xs text-muted-foreground">
             <div className="flex justify-between">
               <span>Active Requests</span>

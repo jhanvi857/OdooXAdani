@@ -145,15 +145,16 @@ export default function AdminDashboard() {
   const avgEfficiency = Math.round(team.reduce((sum, m) => sum + m.efficiency, 0) / team.length)
 
   return (
+    <>
     <AuthLayout userRole="manager">
       <div className="space-y-6">
         <div>
-          <h1 className="text-4xl font-bold text-foreground">System Dashboard</h1>
+          <h1 className="text-4xl font-bold text-[#5D3D55]">System Dashboard</h1>
           <p className="text-muted-foreground mt-2">Monitor, manage, and optimize maintenance operations</p>
         </div>
 
         <div className="grid gap-4 md:grid-cols-5">
-          <Card className="border-secondary shadow-sm hover:shadow-md transition-shadow bg-gradient-to-br from-card to-secondary/10">
+          <Card className="border-secondary shadow-sm hover:shadow-md transition-shadow bg-linear-to-br from-card to-secondary/10">
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-medium flex items-center gap-2 text-muted-foreground">
                 <Zap className="h-4 w-4 text-green-500" />
@@ -168,7 +169,7 @@ export default function AdminDashboard() {
             </CardContent>
           </Card>
 
-          <Card className="border-secondary shadow-sm hover:shadow-md transition-shadow bg-gradient-to-br from-card to-accent/10">
+          <Card className="border-secondary shadow-sm hover:shadow-md transition-shadow bg-linear-to-br from-card to-accent/10">
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-medium flex items-center gap-2 text-muted-foreground">
                 <BarChart3 className="h-4 w-4 text-accent" />
@@ -181,7 +182,7 @@ export default function AdminDashboard() {
             </CardContent>
           </Card>
 
-          <Card className="border-secondary shadow-sm hover:shadow-md transition-shadow bg-gradient-to-br from-card to-red-100/20">
+          <Card className="border-secondary shadow-sm hover:shadow-md transition-shadow bg-linear-to-br from-card to-red-100/20">
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-medium flex items-center gap-2 text-destructive">
                 <AlertTriangle className="h-4 w-4" />
@@ -194,7 +195,7 @@ export default function AdminDashboard() {
             </CardContent>
           </Card>
 
-          <Card className="border-secondary shadow-sm hover:shadow-md transition-shadow bg-gradient-to-br from-card to-primary/10">
+          <Card className="border-secondary shadow-sm hover:shadow-md transition-shadow bg-linear-to-br from-card to-primary/10">
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-medium flex items-center gap-2 text-muted-foreground">
                 <Users className="h-4 w-4 text-primary" />
@@ -207,7 +208,7 @@ export default function AdminDashboard() {
             </CardContent>
           </Card>
 
-          <Card className="border-secondary shadow-sm hover:shadow-md transition-shadow bg-gradient-to-br from-card to-purple-100/20">
+          <Card className="border-secondary shadow-sm hover:shadow-md transition-shadow bg-linear-to-br from-card to-purple-100/20">
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-medium flex items-center gap-2 text-muted-foreground">
                 <TrendingUp className="h-4 w-4 text-purple-500" />
@@ -334,7 +335,7 @@ export default function AdminDashboard() {
                       className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 rounded-xl border border-secondary bg-card p-4 hover:border-primary/30 hover:shadow-md transition-all"
                     >
                       <div className="flex-1">
-                        <h3 className="font-semibold text-foreground">{item.name}</h3>
+                        <h3 className="font-semibold text-[#5D3D55]">{item.name}</h3>
                         <div className="flex gap-4 mt-2 text-sm text-muted-foreground flex-wrap">
                           <span>{item.department}</span>
                           <span>MTBF: {item.mtbf}h</span>
@@ -373,7 +374,7 @@ export default function AdminDashboard() {
                     >
                       <div className="flex items-start justify-between mb-3">
                         <div>
-                          <h3 className="font-semibold text-foreground">{member.name}</h3>
+                          <h3 className="font-semibold text-[#5D3D55]">{member.name}</h3>
                           <p className="text-sm text-muted-foreground">{member.role}</p>
                         </div>
                         <Badge
@@ -389,7 +390,7 @@ export default function AdminDashboard() {
                       <div className="space-y-2">
                         <div className="flex items-center justify-between text-sm">
                           <span className="text-muted-foreground">Efficiency</span>
-                          <span className="font-semibold text-foreground">{member.efficiency}%</span>
+                          <span className="font-semibold text-[#5D3D55]">{member.efficiency}%</span>
                         </div>
                         <div className="w-full bg-secondary rounded-full h-2 overflow-hidden">
                           <div
@@ -408,5 +409,6 @@ export default function AdminDashboard() {
         </Tabs>
       </div>
     </AuthLayout>
+    </>
   )
 }

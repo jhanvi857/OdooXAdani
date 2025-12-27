@@ -93,14 +93,14 @@ export default function TechnicianDashboard() {
       id: "repaired",
       title: "Repaired",
       count: tasks.repaired.length,
-      color: "bg-green-100 dark:bg-green-950",
+      color: "corrective",
       icon: <CheckCircle2 className="h-4 w-4 text-green-500" />,
     },
     {
       id: "scrap",
       title: "Scrap",
       count: tasks.scrap.length,
-      color: "bg-red-100 dark:bg-red-950",
+      color: "corrective",
       icon: <AlertTriangle className="h-4 w-4 text-red-500" />,
     },
   ]
@@ -128,7 +128,7 @@ export default function TechnicianDashboard() {
         {/* Header */}
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
-            <h1 className="text-4xl font-bold text-foreground">My Tasks</h1>
+            <h1 className="text-4xl font-bold text-[#5D3D55]">My Tasks</h1>
             <p className="text-muted-foreground mt-2">Manage and track your maintenance work</p>
           </div>
           <div className="flex gap-2">
@@ -184,16 +184,16 @@ export default function TechnicianDashboard() {
         {viewMode === "kanban" && (
           <div>
             <p className="mb-4 text-sm text-muted-foreground">Drag cards between columns to update status</p>
-            <div className="grid gap-4 lg:grid-cols-4 overflow-x-auto pb-4">
+            <div className="grid gap-4 lg:grid-cols-2 overflow-x-auto pb-4">
               {columns.map((column) => (
                 <div
                   key={column.id}
-                  className={`rounded-xl ${column.color} p-4 flex-shrink-0 w-full lg:w-auto border border-secondary shadow-sm`}
+                  className={`rounded-xl ${column.color} p-4 w-full lg:w-auto shadow-lg`}
                 >
                   <div className="mb-4 flex items-center gap-2">
                     {column.icon}
                     <div>
-                      <h2 className="font-semibold text-foreground">{column.title}</h2>
+                      <h2 className="font-semibold text-[#5D3D55]">{column.title}</h2>
                       <p className="text-xs text-muted-foreground">{column.count} tasks</p>
                     </div>
                   </div>
@@ -202,13 +202,13 @@ export default function TechnicianDashboard() {
                     {tasks[column.id as keyof typeof tasks]?.map((task) => (
                       <Card
                         key={task.id}
-                        className={`cursor-grab rounded-lg shadow-sm hover:shadow-md transition-all border-l-4 ${getTypeColor(task.type)} border-secondary`}
+                        className={`cursor-grab rounded-lg shadow-lg hover:shadow-xl transition-all border-l-4 ${getTypeColor(task.type)} border-secondary`}
                       >
                         <CardContent className="p-4">
                           <div className="flex items-start gap-2">
-                            <GripVertical className="mt-1 h-4 w-4 text-muted-foreground flex-shrink-0" />
+                            <GripVertical className="mt-1 h-4 w-4 text-muted-foreground shrink-0" />
                             <div className="flex-1 min-w-0">
-                              <h3 className="font-medium text-sm break-words text-foreground">{task.equipment}</h3>
+                              <h3 className="font-medium text-sm wrap-break-word text-[#5D3D55]">{task.equipment}</h3>
                               <p className="text-xs text-muted-foreground mt-1">{task.assignee}</p>
                               <div className="mt-3 flex items-center justify-between gap-2 flex-wrap">
                                 <Badge className={getPriorityColor(task.priority)} variant="default">
@@ -253,7 +253,7 @@ export default function TechnicianDashboard() {
                       >
                         <div className="flex items-start justify-between">
                           <div>
-                            <h4 className="font-medium text-foreground">{task.equipment}</h4>
+                            <h4 className="font-medium text-[#5D3D55]">{task.equipment}</h4>
                             <p className="text-sm text-muted-foreground">{task.dueDate}</p>
                           </div>
                           <Badge className={getPriorityColor(task.priority)}>{task.priority}</Badge>

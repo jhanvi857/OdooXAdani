@@ -89,7 +89,7 @@ export function EquipmentList() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h3 className="text-xl font-semibold text-foreground">Equipment Management</h3>
+          <h3 className="text-xl font-semibold text-[#5D3D55]">Equipment Management</h3>
           <p className="text-sm text-muted-foreground">Master database of company assets</p>
         </div>
         <Button className="gap-2 bg-primary hover:bg-primary/90">
@@ -129,7 +129,7 @@ export function EquipmentList() {
       <div className="space-y-6">
         {Object.entries(groupedEquipment).map(([group, items]) => (
           <div key={group}>
-            <h4 className="text-sm font-semibold text-foreground mb-3 px-4 py-2 bg-secondary rounded-lg">
+            <h4 className="text-sm font-semibold text-[#5D3D55] mb-3 px-4 py-2 bg-secondary rounded-lg">
               {group} ({items?.length || 0})
             </h4>
 
@@ -149,7 +149,7 @@ export function EquipmentList() {
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center gap-2">
-                          <h5 className="font-semibold text-foreground">{equipment.name}</h5>
+                          <h5 className="font-semibold text-[#5D3D55]">{equipment.name}</h5>
                           {equipment.status === "scrapped" && (
                             <Badge variant="destructive" className="text-xs">
                               Scrapped
@@ -167,26 +167,26 @@ export function EquipmentList() {
                   <div className="grid grid-cols-2 gap-4 mb-3 text-sm">
                     <div>
                       <p className="text-xs text-muted-foreground">Location</p>
-                      <p className="text-foreground font-medium">{equipment.location}</p>
+                      <p className="text-[#5D3D55] font-medium">{equipment.location}</p>
                     </div>
                     {equipment.assignedEmployee && (
                       <div>
                         <p className="text-xs text-muted-foreground">Assigned To</p>
-                        <p className="text-foreground font-medium">{equipment.assignedEmployee}</p>
+                        <p className="text-[#5D3D55] font-medium">{equipment.assignedEmployee}</p>
                       </div>
                     )}
                   </div>
 
-                  <div className="flex items-center justify-between pt-3 border-t border-border">
+                  <div className="flex items-center justify-between pt-3 border-[#5D3D55] border-border">
                     <div className="flex gap-4 text-xs">
                       <div>
                         <p className="text-muted-foreground">Total Requests</p>
-                        <p className="font-semibold text-foreground">{equipment.maintenanceRequests}</p>
+                        <p className="font-semibold text-[#5D3D55]">{equipment.maintenanceRequests}</p>
                       </div>
                       <div>
                         <p className="text-muted-foreground">Open</p>
                         <p
-                          className={`font-semibold ${equipment.openRequests > 0 ? "text-destructive" : "text-foreground"}`}
+                          className={`font-semibold ${equipment.openRequests > 0 ? "text-destructive" : "text-[#5D3D55]"}`}
                         >
                           {equipment.openRequests}
                         </p>

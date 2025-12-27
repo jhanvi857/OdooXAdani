@@ -60,7 +60,7 @@ export function TeamManagement() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h3 className="text-xl font-semibold text-foreground">Maintenance Teams</h3>
+          <h3 className="text-xl font-semibold text-[#5D3D55]">Maintenance Teams</h3>
           <p className="text-sm text-muted-foreground">Manage teams and assign technicians</p>
         </div>
         <Button className="gap-2 bg-primary hover:bg-primary/90">
@@ -74,7 +74,7 @@ export function TeamManagement() {
           <Card key={team.id} className="p-6">
             <div className="flex items-start justify-between mb-4">
               <div>
-                <h4 className="text-lg font-semibold text-foreground flex items-center gap-2">
+                <h4 className="text-lg font-semibold text-[#5D3D55] flex items-center gap-2">
                   <Users className="w-5 h-5 text-primary" />
                   {team.name}
                 </h4>
@@ -103,7 +103,7 @@ export function TeamManagement() {
             </div>
 
             <div className="space-y-3">
-              <h5 className="font-semibold text-foreground text-sm">Team Members</h5>
+              <h5 className="font-semibold text-[#5D3D55] text-sm">Team Members</h5>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {team.technicians.map((tech) => (
                   <div key={tech.id} className="flex items-center justify-between p-3 border border-border rounded-lg">
@@ -112,7 +112,7 @@ export function TeamManagement() {
                         {tech.avatar}
                       </div>
                       <div>
-                        <p className="font-medium text-foreground text-sm">{tech.name}</p>
+                        <p className="font-medium text-[#5D3D55] text-sm">{tech.name}</p>
                         <p className="text-xs text-muted-foreground">{tech.role}</p>
                       </div>
                     </div>

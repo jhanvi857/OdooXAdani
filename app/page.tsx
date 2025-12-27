@@ -3,6 +3,8 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ArrowRight, Check, Zap, Layers, BarChart3, Clock } from "lucide-react"
+import Navbar from "@/components/navbar"
+import Footer from "@/components/footer"
 
 export default function LandingPage() {
   const features = [
@@ -46,34 +48,15 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur-sm">
-        <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-accent" />
-              <span className="text-2xl font-bold text-foreground">GearGuard</span>
-            </div>
-            <nav className="flex items-center gap-2 sm:gap-4">
-              <Link href="/login">
-                <Button variant="ghost" className="text-foreground hover:bg-secondary">
-                  Login
-                </Button>
-              </Link>
-              <Link href="/signup">
-                <Button className="bg-primary hover:bg-primary/90">Get Started</Button>
-              </Link>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <Navbar/>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden px-4 py-24 sm:px-6 lg:px-8">
+      <section className="min-h-screen relative overflow-hidden px-4 py-24 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
           <div className="mb-8 inline-block rounded-full bg-accent/10 px-4 py-2 text-sm font-medium text-accent">
             ✨ Enterprise Maintenance Management
           </div>
-          <h1 className="mb-6 text-balance text-5xl font-bold leading-tight md:text-6xl lg:text-7xl text-foreground">
+          <h1 className="mb-6 text-balance text-5xl font-bold leading-tight md:text-6xl lg:text-7xl text-[#5D3D55]">
             Smarter Maintenance.
             <span className="block text-primary"> Zero Downtime.</span>
           </h1>
@@ -83,7 +66,7 @@ export default function LandingPage() {
           </p>
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
             <Link href="/signup">
-              <Button size="lg" className="w-full bg-primary hover:bg-primary/90 sm:w-auto">
+              <Button size="lg" className="w-full text-white bg-[#5D3D55] hover:scale-105 border border-[#5D3D55] sm:w-auto">
                 Start Free <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
@@ -97,10 +80,10 @@ export default function LandingPage() {
       </section>
 
       {/* Features Section */}
-      <section className="border-t bg-secondary/20 px-4 py-20 sm:px-6 lg:px-8">
+      <section className="bg-gray-100 px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-16 text-center">
-            <h2 className="mb-4 text-4xl font-bold text-foreground">Powerful Features</h2>
+            <h2 className="mb-4 text-4xl font-bold text-[#5D3D55]">Powerful Features</h2>
             <p className="text-lg text-muted-foreground">Everything you need to manage maintenance operations</p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
@@ -110,7 +93,7 @@ export default function LandingPage() {
                 className="rounded-xl border bg-card p-8 text-center shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="mb-4 flex justify-center">{feature.icon}</div>
-                <h3 className="mb-3 text-lg font-semibold text-foreground">{feature.title}</h3>
+                <h3 className="mb-3 text-lg font-semibold text-[#5D3D55]">{feature.title}</h3>
                 <p className="text-sm text-muted-foreground">{feature.description}</p>
               </div>
             ))}
@@ -122,7 +105,7 @@ export default function LandingPage() {
       <section className="px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-16 text-center">
-            <h2 className="mb-4 text-4xl font-bold text-foreground">Built for Every Role</h2>
+            <h2 className="mb-4 text-4xl font-bold text-[#5D3D55]">Built for Every Role</h2>
             <p className="text-lg text-muted-foreground">Tailored workflows for your organization</p>
           </div>
           <div className="grid gap-8 md:grid-cols-3">
@@ -135,7 +118,7 @@ export default function LandingPage() {
                 <ul className="space-y-4">
                   {benefit.items.map((item) => (
                     <li key={item} className="flex items-start gap-3">
-                      <Check className="mt-1 h-5 w-5 flex-shrink-0 text-primary" />
+                      <Check className="mt-1 h-5 w-5 shrink-0 text-primary" />
                       <span className="text-muted-foreground">{item}</span>
                     </li>
                   ))}
@@ -147,14 +130,14 @@ export default function LandingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="border-t bg-gradient-to-r from-primary to-accent px-4 py-20 text-center text-primary-foreground sm:px-6 lg:px-8">
+      <section className="bg-gray-100 from-primary to-accent px-4 py-20 text-center text-primary-foreground sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl">
           <h2 className="mb-6 text-4xl font-bold">Ready to get started?</h2>
           <p className="mb-10 text-lg opacity-90">
             Join teams worldwide who are transforming their maintenance operations.
           </p>
           <Link href="/signup">
-            <Button size="lg" variant="secondary" className="bg-white hover:bg-gray-100 text-primary">
+            <Button className="bg-[#593B51] p-2 rounded-lg text-white hover:scale-105">
               Create Free Account <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>
@@ -162,11 +145,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t bg-secondary/30 px-4 py-12 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl text-center">
-          <p className="text-muted-foreground">GearGuard © 2025. The Ultimate Maintenance Tracker.</p>
-        </div>
-      </footer>
+      <Footer/>
     </div>
   )
 }

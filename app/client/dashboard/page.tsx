@@ -71,21 +71,22 @@ export default function ClientDashboard() {
   }
 
   return (
+    <>
     <AuthLayout userRole="client">
       <div className="space-y-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
-            <h1 className="text-4xl font-bold text-foreground">Maintenance Requests</h1>
+            <h1 className="text-4xl font-bold text-[#5D3D55]">Maintenance Requests</h1>
             <p className="text-muted-foreground mt-2">Track and manage your equipment maintenance</p>
           </div>
-          <Button className="bg-primary hover:bg-primary/90 w-full md:w-auto">
+          <Button className="bg-[#604058] text-white hover:scale-105 w-full md:w-auto">
             <Plus className="mr-2 h-4 w-4" />
             New Request
           </Button>
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
-          <Card className="border-secondary shadow-sm hover:shadow-md transition-shadow">
+          <Card className="shadow-sm hover:shadow-md transition-shadow">
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-medium text-muted-foreground flex items-center gap-2">
                 <TrendingUp className="h-4 w-4 text-primary" />
@@ -93,11 +94,11 @@ export default function ClientDashboard() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-foreground">12</div>
+              <div className="text-3xl font-bold text-[#5D3D55]">12</div>
               <p className="text-xs text-muted-foreground mt-1">All submitted requests</p>
             </CardContent>
           </Card>
-          <Card className="border-secondary shadow-sm hover:shadow-md transition-shadow">
+          <Card className="shadow-sm hover:shadow-md transition-shadow">
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-medium text-muted-foreground flex items-center gap-2">
                 <Clock className="h-4 w-4 text-accent" />
@@ -109,7 +110,7 @@ export default function ClientDashboard() {
               <p className="text-xs text-muted-foreground mt-1">Currently being worked on</p>
             </CardContent>
           </Card>
-          <Card className="border-secondary shadow-sm hover:shadow-md transition-shadow">
+          <Card className=" shadow-sm hover:shadow-md transition-shadow">
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-medium text-muted-foreground flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4 text-green-500" />
@@ -123,7 +124,7 @@ export default function ClientDashboard() {
           </Card>
         </div>
 
-        <Card className="border-secondary shadow-sm">
+        <Card className="shadow-sm">
           <CardHeader>
             <CardTitle className="text-xl">Your Requests</CardTitle>
             <CardDescription>All maintenance requests you've submitted</CardDescription>
@@ -134,12 +135,12 @@ export default function ClientDashboard() {
                 {requests.map((request) => (
                   <div
                     key={request.id}
-                    className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 rounded-xl border border-secondary bg-card p-4 hover:border-primary/30 hover:shadow-md transition-all"
+                    className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 rounded-xl shadow-lg bg-card p-4 hover:shadow-xl transition-all"
                   >
                     <div className="flex items-center gap-4">
                       {getStatusIcon(request.status)}
                       <div>
-                        <h3 className="font-semibold text-foreground">{request.equipment}</h3>
+                        <h3 className="font-semibold text-[#5D3D55]">{request.equipment}</h3>
                         <p className="text-sm text-muted-foreground">{request.requestDate}</p>
                       </div>
                     </div>
@@ -163,5 +164,6 @@ export default function ClientDashboard() {
         </Card>
       </div>
     </AuthLayout>
+    </>
   )
 }

@@ -10,6 +10,8 @@ import { useRouter } from "next/navigation"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useAuth } from "@/app/providers"
 import { Zap } from "lucide-react"
+import Footer from "@/components/footer"
+import Navbar from "@/components/navbar"
 
 type Role = "client" | "technician" | "manager"
 
@@ -53,11 +55,13 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-secondary/20 to-background px-4">
+    <>
+    <Navbar/>
+    <div className="min-h-screen flex items-center justify-center from-background via-secondary/20 to-background px-4">
       <Card className="w-full max-w-md border-secondary shadow-lg">
         <CardHeader className="text-center space-y-4">
           <div className="flex justify-center">
-            <div className="h-12 w-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+            <div className="h-12 w-12 rounded-lg  from-primary to-accent flex items-center justify-center">
               <Zap className="h-6 w-6 text-primary-foreground" />
             </div>
           </div>
@@ -75,7 +79,7 @@ export default function SignupPage() {
             )}
 
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-foreground">Full Name</label>
+              <label className="text-sm font-semibold text-[#5D3D55]">Full Name</label>
               <Input
                 name="fullName"
                 placeholder="John Doe"
@@ -86,7 +90,7 @@ export default function SignupPage() {
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-foreground">Email</label>
+              <label className="text-sm font-semibold text-[#5D3D55]">Email</label>
               <Input
                 type="email"
                 name="email"
@@ -98,7 +102,7 @@ export default function SignupPage() {
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-foreground">Password</label>
+              <label className="text-sm font-semibold text-[#5D3D55]">Password</label>
               <Input
                 type="password"
                 name="password"
@@ -110,7 +114,7 @@ export default function SignupPage() {
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-foreground">Company / Organization</label>
+              <label className="text-sm font-semibold text-[#5D3D55]">Company / Organization</label>
               <Input
                 name="company"
                 placeholder="Your Company"
@@ -121,7 +125,7 @@ export default function SignupPage() {
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-foreground">Role</label>
+              <label className="text-sm font-semibold text-[#5D3D55]">Role</label>
               <Select value={formData.role} onValueChange={handleRoleChange}>
                 <SelectTrigger className="border-secondary">
                   <SelectValue />
@@ -134,7 +138,7 @@ export default function SignupPage() {
               </Select>
             </div>
 
-            <Button type="submit" className="w-full bg-primary hover:bg-primary/90 h-10 font-semibold">
+            <Button type="submit" className="w-full bg-[#5D3D55] text-white hover:scale-105 h-10 font-semibold">
               Create Account
             </Button>
           </form>
@@ -148,5 +152,7 @@ export default function SignupPage() {
         </CardContent>
       </Card>
     </div>
+    <Footer/>
+    </>
   )
 }
