@@ -3,7 +3,7 @@
 import type React from "react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { useRouter } from "next/navigation"
+import { useRouter, usePathname } from "next/navigation"
 import { Menu, X, LogOut, Home } from "lucide-react"
 import { useAuth } from "@/app/providers"
 import Link from "next/link"
@@ -17,22 +17,24 @@ export default function AuthLayout({ children, userRole }: AuthLayoutProps) {
   const { logout } = useAuth()
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
+  const pathname = usePathname()
+
   const navItems = {
     client: [
       { label: "Dashboard", href: "/client/dashboard" },
-      { label: "My Requests", href: "#" },
-      { label: "Equipment", href: "#" },
+      { label: "My Requests", href: "/client/requests" },
+      { label: "Equipment", href: "/client/equipment" },
     ],
     technician: [
       { label: "Kanban Board", href: "/tech/dashboard" },
-      { label: "Calendar", href: "#" },
-      { label: "My Tasks", href: "#" },
+      { label: "Calendar", href: "/tech/calendar" },
+      { label: "My Tasks", href: "/tech/tasks" },
     ],
     manager: [
       { label: "Overview", href: "/admin/dashboard" },
-      { label: "Equipment", href: "#" },
-      { label: "Team", href: "#" },
-      { label: "Reports", href: "#" },
+      { label: "Equipment", href: "/admin/equipment" },
+      { label: "Team", href: "/admin/team" },
+      { label: "Reports", href: "/admin/reports" },
     ],
   }
 
@@ -59,9 +61,15 @@ export default function AuthLayout({ children, userRole }: AuthLayoutProps) {
             <ul className="space-y-2">
               {navItems[userRole].map((item) => (
                 <li key={item.label}>
-                  <button className="w-full text-left px-4 py-2 rounded-lg hover:bg-[#5D3D55] transition-colors">
+                  <Link
+                    href={item.href}
+                    className={`w-full block text-left px-4 py-2 rounded-lg transition-colors ${
+                      pathname === item.href ? "bg-[#5D3D55] text-white" : "hover:bg-[#5D3D55]"
+                    }`}
+                    onClick={() => setSidebarOpen(false)}
+                  >
                     {item.label}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
